@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <meta name="google-signin-client_id" content="892422353913-ed3d0gkk70gujb48j4lg7me6ebt2led4.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirOS BIOS</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+          @media (prefers-color-scheme: light) {
+p {
+    color: black;
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: auto;
+}
+h1 {
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    color: darkturquoise
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: auto;
+}
+a {
+    
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    color: rgb(255, 0, 132)
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    
+}
+body{ 
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+	font-family: Arial; 
+        
+    box-shadow: 10px 10px lightblue;
+} 
+body {
+    box-shadow: 10px 10px lightblue;
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+img {
+    
+
+    
+    
+    border-radius: 8px;
+-webkit-animation: backwards;
+
+
+}
+.ninjarrimgage {
+    border-radius: 25px;
+    box-shadow: 10px 10px lightblue;
+}
+header {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    Color: rgb(0, 0, 0);
+    font-size: 400%;
+    outline: black;
+    box-shadow: rgb(0, 0, 0);
+}
+nav {
+    transition: width 2s; 
+    position: fixed; top: 0;left: 0;
+    margin-bottom: 130px;
+    background-color: black;
+    box-shadow: 10px 10px lightblue;
+    
+    }
+    
+    button {
+        transition: width 2s;
+        width: 100%;
+        padding: 12px 0;
+        box-shadow: 10px 10px lightblue;
+        border: none;
+        border-radius: 25px;
+        background-color: blue;
+        color: #00ff62;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .password-input {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+button:hover {
+    transition: width 2s;
+    box-shadow: 10px 10px lightblue;
+    background-color: #2a76f0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 118, 240, 0.4);
+}
+
+.password-input {
+    border-radius: 25px;
+}
+  a:hover {
+    color: #00ff62;
+  }
+  a:link {
+    color: rgb(255, 0, 149);
+  }
+ div {
+    border-radius: 25px;
+ }
+ input {
+    width: 100%;
+    border-radius: 25px;
+    height: 30px;
+    font-size: medium;
+  }
+ /* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: #ffffff;
+    box-shadow: 10px 10px lightblue;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    p {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h1 {
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h2 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h3 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h4 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h5 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    a {
+        
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: pointer;
+        
+    }
+    body{ 
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: Arial; 
+        color: rgb(255, 255, 255);
+        box-shadow: 10px 10px lightblue;
+    } 
+    body {
+        box-shadow: 10px 10px lightblue;
+        padding: 25px;
+        background-color: rgb(0, 0, 0);
+        color: black;
+        font-size: 25px;
+      }
+      
+     
+      }
+    
+    img {
+        
+    
+        
+        
+        border-radius: 8px;
+    -webkit-animation: backwards;
+    
+    
+    }
+    .ninjarrimgage {
+        border-radius: 25px;
+        box-shadow: 10px 10px lightblue;
+    }
+    header {
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 25px;
+        Color: rgb(0, 0, 0);
+        font-size: 400%;
+        outline: black;
+        box-shadow: rgb(0, 0, 0);
+    }
+    nav {
+        transition: width 2s; 
+        position: fixed; top: 0;left: 0;
+        margin-bottom: 130px;
+        background-color: black;
+        box-shadow: 10px 10px lightblue;
+        
+        }
+        
+        button {
+            transition: width 2s;
+            width: 100%;
+            padding: 12px 0;
+            box-shadow: 10px 10px rgb(90, 90, 90);
+            border: none;
+            border-radius: 25px;
+            background-color: rgb(97, 97, 97);
+            color: #000000;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .password-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+    
+    button:hover {
+        transition: width 2s;
+        box-shadow: 10px 10px lightblue;
+        background-color: #868686;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(42, 118, 240, 0.4);
+    }
+    
+    .password-input {
+        border-radius: 25px;
+    }
+      a:hover {
+        color: #00ff62;
+      }
+      a:link {
+        color: rgb(255, 0, 149);
+      }
+     div {
+        border-radius: 25px;
+     }
+     input {
+        width: 100%;
+        border-radius: 25px;
+        height: 30px;
+        font-size: medium;
+        
+        
+      }
+     /* The popup form - hidden by default */
+    .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #292929;
+        z-index: 9;
+        background-color: #000000;
+        box-shadow: 10px 10px rgb(64, 64, 64);
+        
+      }
+      b {
+        color: #ffffff;
+      }
+      input {
+        background-color: #868686;
+        
+      }
+      ::placeholder {
+        color: #fff;
+      }
+    
+    }
+        :root {
+    --color-dark: #202020;
+    --color-medium: #333333;
+    --color-light: #FDF5E6;
+    --color-accent: #FF9800;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    overflow: hidden;
+}
+
+.window {
+    background-color: var(--color-medium);
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
+}
+
+.title-bar {
+    background: white;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.window-btn {
+    background: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.window-btn:hover {
+    background: #FFB74D;
+}
+
+.taskbar {
+    background: linear-gradient(to bottom, #3c3c3c, var(--color-medium));
+    border-top: 2px solid var(--color-accent);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn {
+    background: linear-gradient(to bottom, #FFB74D, var(--color-accent));
+    color: var(--color-dark);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn:hover {
+    background: linear-gradient(to bottom, #FFCC80, #FFB74D);
+}
+
+.taskbar-icon {
+    background-color: rgba(253, 245, 230, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.taskbar-icon:hover, .taskbar-icon.active {
+    background-color: rgba(253, 245, 230, 0.3);
+}
+
+.icon {
+    background-color: var(--color-medium);
+    border: 2px solid var(--color-accent);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-medium);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border: 1px solid var(--color-medium);
+}
+
+.content {
+    background-color: White;
+    color: var(--color-dark);
+}
+
+.browser-toolbar {
+    background-color: red;
+    border-bottom: 1px solid;
+}
+
+.browser-btn {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.browser-btn:hover {
+    background-color: #FFB74D;
+}
+
+.search-bar {
+    background-color: blue;
+    color: var(--color-dark);
+}
+
+#browser-frame {
+    width: 100%;
+    height: 100%;
+    border: 3px;
+    color: lightblue;
+}
+
+#custom-homepage {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+    color: var(--color-light);
+}
+
+#custom-homepage input {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border: 2px solid var(--color-accent);
+}
+
+#custom-homepage button {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+#custom-homepage button:hover {
+    background-color: #FFB74D;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent);
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+}
+
+/* Desktop Styles */
+#desktop {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 56px); /* Adjust based on your taskbar height */
+    overflow: hidden;
+    background-color: pink;
+}
+
+.desktop-icon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+    user-select: none;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    color: var(--color-light);
+}
+
+.desktop-icon:hover {
+    opacity: 0.8;
+}
+
+.desktop-icon:active {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+.desktop-icon .icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: rgba(45, 55, 72, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.desktop-icon:hover .icon {
+    background-color: rgba(45, 55, 72, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.desktop-icon .icon-title {
+    margin-top: 4px;
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Context Menu Styles */
+#context-menu {
+    min-width: 200px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#context-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 32, 44, 0.8);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+#context-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#context-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#context-menu li:hover {
+    background-color: rgba(66, 153, 225, 0.2);
+}
+
+#context-menu li i {
+    margin-right: 10px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+#context-menu li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Video Player Styles */
+#video-window .content {
+    min-height: 300px;
+}
+
+#video-window .video-container {
+    background-color: black;
+    min-height: 200px;
+}
+
+#video-window .video-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+#video-window .video-controls input[type="range"] {
+    -webkit-appearance: none;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#video-window .video-controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+#video-window .video-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #4299e1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#video-window .video-controls input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #4299e1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#video-window .video-controls,
+#video-window .file-input-container {
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    #video-window .video-controls .flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #video-window .video-controls .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    #video-window .file-input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #video-window .file-input-container label {
+        margin-bottom: 0.5rem;
+    }
+
+    #video-window #file-name {
+        margin-left: 0;
+    }
+}
+
+.terminal-output-line, .terminal-response {
+    padding: 2px 0;
+}
+
+.terminal-output-line {
+    color: #00FF00;
+}
+
+.terminal-response {
+    color: #FFFFFF;
+    }
+    </style>
+</head>
+    <meta name="google-signin-client_id" content="892422353913-ed3d0gkk70gujb48j4lg7me6ebt2led4.apps.googleusercontent.com">
+<body>
+    <div id="bios-screen">
+        <div id="header">
+            <div>AirOS BIOS v4.0</div>
+            <div id="tabs">
+                <div class="tab active" data-tab="main">Main</div>
+                <div class="tab" data-tab="advanced">Advanced</div>
+                <div class="tab" data-tab="power">Power</div>
+                <div class="tab" data-tab="boot">Boot</div>
+                <div class="tab" data-tab="security">Security</div>
+                <div class="tab" data-tab="exit">Exit</div>
+            </div>
+        </div>
+        <div id="content"></div>
+        <div id="footer">
+            ←→: Select Tab | ↑↓: Navigate | Enter: Change Value | +/-: Adjust Value | S: Save & Exit | ESC: Exit
+        </div>
+    </div>
+    <div id="popup">
+        <input type="text" id="popup-input">
+        <br>
+        <button id="popup-save">Save</button>
+        <button id="popup-cancel">Cancel</button>
+    </div>
+
+    <script>
+        const content = document.getElementById('content');
+        const tabs = document.querySelectorAll('.tab');
+        const popup = document.getElementById('popup');
+        const popupInput = document.getElementById('popup-input');
+        const popupSave = document.getElementById('popup-save');
+        const popupCancel = document.getElementById('popup-cancel');
+        let activeTabIndex = 0;
+        let selectedRow = -1;
+        let isPopupOpen = false;
+
+        const tabContents = {
+            main: `
+<table>
+    <tr><th colspan="2">System Information</th></tr>
+    <tr><td>CPU</td><td>AirOS Inc ProF65000X X86-64 Quad-Core {cpuSpeed} MHz</td></tr>
+    <tr><td>Memory</td><td>{memorySize} MB</td></tr>
+    <tr><td>BIOS Version</td><td>4.0.1</td></tr>
+    <tr><td>BIOS Date</td><td>05/15/2024</td></tr>
+    <tr><td>System Time</td><td class="selectable">{systemTime}</td></tr>
+    <tr><td>System Date</td><td class="selectable">{systemDate}</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">Storage Devices</th></tr>
+    <tr><td>SATA 0</td><td>Web OS Inc SSD-512 (512 GB)</td></tr>
+    <tr><td>SATA 1</td><td>Web OS Inc HDD-2TB (2 TB)</td></tr>
+    <tr><td>M.2 Slot</td><td>Web OS Inc NVMe-1TB (1 TB)</td></tr>
+    <tr><td>Optical Drive</td><td>Web OS Inc ODD-RW</td></tr>
+</table>
+`,
+            advanced: `
+<table>
+    <tr><th colspan="2">CPU Configuration</th></tr>
+    <tr><td>Hyper-Threading</td><td class="selectable">Enabled</td></tr>
+    <tr><td>VT-x</td><td class="selectable">Enabled</td></tr>
+    <tr><td>CPU Fan Speed</td><td>{cpuFanSpeed} RPM</td></tr>
+    <tr><td>Turbo Boost</td><td class="selectable">Enabled</td></tr>
+    <tr><td>C-States</td><td class="selectable">Enabled</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">Onboard Devices</th></tr>
+    <tr><td>LAN Controller</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Wi-Fi Controller</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Bluetooth</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Audio Controller</td><td class="selectable">Enabled</td></tr>
+    <tr><td>SATA Mode</td><td class="selectable">AHCI</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">USB Configuration</th></tr>
+    <tr><td>USB 3.0 Support</td><td class="selectable">Enabled</td></tr>
+    <tr><td>XHCI Hand-off</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Legacy USB Support</td><td class="selectable">Enabled</td></tr>
+</table>
+`,
+            power: `
+<table>
+    <tr><th colspan="2">Power Management</th></tr>
+    <tr><td>ACPI Sleep State</td><td class="selectable">S3 (Suspend to RAM)</td></tr>
+    <tr><td>Power On by PCI-E</td><td class="selectable">Disabled</td></tr>
+    <tr><td>Power On by RTC</td><td class="selectable">Disabled</td></tr>
+    <tr><td>Restore on AC Power Loss</td><td class="selectable">Power Off</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">CPU Power Management</th></tr>
+    <tr><td>Intel SpeedStep</td><td class="selectable">Enabled</td></tr>
+    <tr><td>CPU C-states</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Turbo Mode</td><td class="selectable">Enabled</td></tr>
+</table>
+`,
+            boot: `
+<table>
+    <tr><th colspan="2">Boot Device Priority</th></tr>
+    <tr><td>1st Boot Device</td><td class="selectable">Web OS Inc SSD-512</td></tr>
+    <tr><td>2nd Boot Device</td><td class="selectable">Web OS Inc HDD-2TB</td></tr>
+    <tr><td>3rd Boot Device</td><td class="selectable">Web OS Inc ODD-RW</td></tr>
+    <tr><td>4th Boot Device</td><td class="selectable">USB Device</td></tr>
+    <tr><td>5th Boot Device</td><td class="selectable">Network Boot</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">Boot Settings</th></tr>
+    <tr><td>Quick Boot</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Boot Logo</td><td class="selectable">Enabled</td></tr>
+    <tr><td>Boot Up NumLock</td><td class="selectable">On</td></tr>
+    <tr><td>Boot Mode</td><td class="selectable">UEFI</td></tr>
+    <tr><td>CSM Support</td><td class="selectable">Disabled</td></tr>
+</table>
+`,
+            security: `
+<table>
+    <tr><th colspan="2">Security Settings</th></tr>
+    <tr><td>Supervisor Password</td><td class="selectable">Not Set</td></tr>
+    <tr><td>User Password</td><td class="selectable">Not Set</td></tr>
+    <tr><td>HDD Password</td><td class="selectable">Not Set</td></tr>
+    <tr><td>TPM Device</td><td>Present</td></tr>
+    <tr><td>TPM State</td><td class="selectable">Enabled</td></tr>
+</table>
+
+<table>
+    <tr><th colspan="2">Secure Boot</th></tr>
+    <tr><td>Secure Boot</td><td class="selectable">Disabled</td></tr>
+    <tr><td>Secure Boot Mode</td><td class="selectable">Standard</td></tr>
+    <tr><td>Secure Boot Key Management</td><td class="selectable">Enter ></td></tr>
+</table>
+`,
+            exit: `
+<table>
+    <tr><th>Exit Options</th></tr>
+    <tr><td class="selectable">Save Changes and Reset</td></tr>
+    <tr><td class="selectable">Discard Changes and Exit</td></tr>
+    <tr><td class="selectable">Load Setup Defaults</td></tr>
+    <tr><td class="selectable">Save as User Defaults</td></tr>
+    <tr><td class="selectable">Restore User Defaults</td></tr>
+</table>
+
+<div class="highlight">
+Press S to save and exit.
+Press ESC to discard changes and exit.
+</div>
+`
+        };
+
+        function updateContent() {
+            const activeTab = document.querySelector('.tab.active');
+            content.innerHTML = tabContents[activeTab.dataset.tab];
+            selectedRow = -1;
+            updateSelectedRow();
+        }
+
+        function setActiveTab(index) {
+            tabs[activeTabIndex].classList.remove('active');
+            activeTabIndex = index;
+            tabs[activeTabIndex].classList.add('active');
+            updateContent();
+        }
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => setActiveTab(index));
+        });
+
+        function updateSelectedRow() {
+            const rows = content.querySelectorAll('tr');
+            rows.forEach((row, index) => {
+                if (index === selectedRow) {
+                    row.style.backgroundColor = '#333';
+                } else {
+                    row.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function showPopup(value, callback) {
+            popupInput.value = value;
+            popup.style.display = 'block';
+            popupInput.focus();
+            isPopupOpen = true;
+
+            function save() {
+                popup.style.display = 'none';
+                isPopupOpen = false;
+                callback(popupInput.value);
+            }
+
+            function cancel() {
+                popup.style.display = 'none';
+                isPopupOpen = false;
+            }
+
+            popupSave.onclick = save;
+            popupCancel.onclick = cancel;
+
+            popupInput.onkeydown = function(e) {
+                e.stopPropagation(); // Prevent event bubbling
+                if (e.key === 'Enter') {
+                    save();
+                } else if (e.key === 'Escape') {
+                    window.location.href = 'index.html';
+                }
+            };
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (isPopupOpen) return; // Ignore keyboard events when popup is open
+
+            const rows = content.querySelectorAll('tr');
+            switch(e.key) {
+                case 'ArrowLeft':
+                    setActiveTab((activeTabIndex - 1 + tabs.length) % tabs.length);
+                    break;
+                case 'ArrowRight':
+                    setActiveTab((activeTabIndex + 1) % tabs.length);
+                    break;
+                case 'ArrowUp':
+                    if (selectedRow > 0) selectedRow--;
+                    updateSelectedRow();
+                    break;
+                case 'ArrowDown':
+                    if (selectedRow < rows.length - 1) selectedRow++;
+                    updateSelectedRow();
+                    break;
+                case 'Enter':
+                    if (selectedRow >= 0) {
+                        const selectedCell = rows[selectedRow].querySelector('.selectable');
+                        if (selectedCell) {
+                            const currentValue = selectedCell.textContent;
+                            if (currentValue === 'Enabled' || currentValue === 'Disabled') {
+                                selectedCell.textContent = currentValue === 'Enabled' ? 'Disabled' : 'Enabled';
+                            } else {
+                                showPopup(currentValue, (newValue) => {
+                                    selectedCell.textContent = newValue;
+                                });
+                            }
+                        }
+                    }
+                    break;
+                case '+':
+                case '-':
+                    if (selectedRow >= 0) {
+                        const selectedCell = rows[selectedRow].querySelector('.selectable');
+                        if (selectedCell) {
+                            let value = selectedCell.textContent;
+                            if (value === 'Enabled' || value === 'Disabled') {
+                                selectedCell.textContent = value === 'Enabled' ? 'Disabled' : 'Enabled';
+                            } else if (!isNaN(value)) {
+                                value = parseInt(value);
+                                value += e.key === '+' ? 1 : -1;
+                                selectedCell.textContent = value;
+                            }
+                        }
+                    }
+                    break;
+                case 's':
+                    showPopup('Save changes and exit?', (response) => {
+                        if (response.toLowerCase() === 'yes') {
+                            console.log('Saving changes and exiting...');
+                        }
+                    });
+                    break;
+                case 'Escape':
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    });
+                    break;
+            }
+        });
+
+        function generateValue(placeholder) {
+            switch (placeholder) {
+                case 'cpuSpeed': return Math.floor(Math.random() * 1000) + 3000;
+                case 'memorySize': return Math.floor(Math.random() * 16384) + 16384;
+                case 'cpuFanSpeed': return Math.floor(Math.random() * 1000) + 1000;
+                case 'systemTime': return new Date().toLocaleTimeString();
+                case 'systemDate': return new Date().toLocaleDateString();
+                default: return 'N/A';
+            }
+        }
+
+        function replaceValues() {
+            const elements = document.querySelectorAll('td');
+            elements.forEach(el => {
+                const text = el.textContent;
+                if (text.includes('{') && text.includes('}')) {
+                    const placeholder = text.match(/{(\w+)}/)[1];
+                    const value = generateValue(placeholder);
+                    el.textContent = text.replace(`{${placeholder}}`, value);
+                }
+            });
+        }
+
+        updateContent();
+        replaceValues();
+
+        // Add custom cursor
+        const cursor = document.createElement('div');
+        cursor.style.position = 'fixed';
+        cursor.style.width = '20px';
+        cursor.style.height = '30px';
+        cursor.style.backgroundColor = '#fff';
+        cursor.style.zIndex = '9999';
+        cursor.style.pointerEvents = 'none';
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Simulate real-time updates
+        setInterval(() => {
+            document.querySelectorAll('td').forEach(td => {
+                if (td.textContent.includes('RPM')) {
+                    td.textContent = `${Math.floor(Math.random() * 1000) + 1000} RPM`;
+                }
+            });
+            replaceValues();
+        }, 5000);
+    </script>
+</body>
+</html>

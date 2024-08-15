@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+  <meta name="google-signin-client_id" content="892422353913-ed3d0gkk70gujb48j4lg7me6ebt2led4.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirOS Boot</title>
+    
+    <style>
+            @media (prefers-color-scheme: light) {
+p {
+    color: black;
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: auto;
+}
+h1 {
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    color: darkturquoise
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: auto;
+}
+a {
+    
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+    color: rgb(255, 0, 132)
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    
+}
+body{ 
+    text-shadow: 2px 2px 5px rgb(125, 125, 125);
+	font-family: Arial; 
+        
+    box-shadow: 10px 10px lightblue;
+} 
+body {
+    box-shadow: 10px 10px lightblue;
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+img {
+    
+
+    
+    
+    border-radius: 8px;
+-webkit-animation: backwards;
+
+
+}
+.ninjarrimgage {
+    border-radius: 25px;
+    box-shadow: 10px 10px lightblue;
+}
+header {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    Color: rgb(0, 0, 0);
+    font-size: 400%;
+    outline: black;
+    box-shadow: rgb(0, 0, 0);
+}
+nav {
+    transition: width 2s; 
+    position: fixed; top: 0;left: 0;
+    margin-bottom: 130px;
+    background-color: black;
+    box-shadow: 10px 10px lightblue;
+    
+    }
+    
+    button {
+        transition: width 2s;
+        width: 100%;
+        padding: 12px 0;
+        box-shadow: 10px 10px lightblue;
+        border: none;
+        border-radius: 25px;
+        background-color: blue;
+        color: #00ff62;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .password-input {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+button:hover {
+    transition: width 2s;
+    box-shadow: 10px 10px lightblue;
+    background-color: #2a76f0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 118, 240, 0.4);
+}
+
+.password-input {
+    border-radius: 25px;
+}
+  a:hover {
+    color: #00ff62;
+  }
+  a:link {
+    color: rgb(255, 0, 149);
+  }
+ div {
+    border-radius: 25px;
+ }
+ input {
+    width: 100%;
+    border-radius: 25px;
+    height: 30px;
+    font-size: medium;
+  }
+ /* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: #ffffff;
+    box-shadow: 10px 10px lightblue;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    p {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h1 {
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h2 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h3 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h4 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h5 {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    a {
+        
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: pointer;
+        
+    }
+    body{ 
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: Arial; 
+        color: rgb(255, 255, 255);
+        box-shadow: 10px 10px lightblue;
+    } 
+    body {
+        box-shadow: 10px 10px lightblue;
+        padding: 25px;
+        background-color: rgb(0, 0, 0);
+        color: black;
+        font-size: 25px;
+      }
+      
+     
+      }
+    
+    img {
+        
+    
+        
+        
+        border-radius: 8px;
+    -webkit-animation: backwards;
+    
+    
+    }
+    .ninjarrimgage {
+        border-radius: 25px;
+        box-shadow: 10px 10px lightblue;
+    }
+    header {
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 25px;
+        Color: rgb(0, 0, 0);
+        font-size: 400%;
+        outline: black;
+        box-shadow: rgb(0, 0, 0);
+    }
+    nav {
+        transition: width 2s; 
+        position: fixed; top: 0;left: 0;
+        margin-bottom: 130px;
+        background-color: black;
+        box-shadow: 10px 10px lightblue;
+        
+        }
+        
+        button {
+            transition: width 2s;
+            width: 100%;
+            padding: 12px 0;
+            box-shadow: 10px 10px rgb(90, 90, 90);
+            border: none;
+            border-radius: 25px;
+            background-color: rgb(97, 97, 97);
+            color: #000000;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .password-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+    
+    button:hover {
+        transition: width 2s;
+        box-shadow: 10px 10px lightblue;
+        background-color: #868686;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(42, 118, 240, 0.4);
+    }
+    
+    .password-input {
+        border-radius: 25px;
+    }
+      a:hover {
+        color: #00ff62;
+      }
+      a:link {
+        color: rgb(255, 0, 149);
+      }
+     div {
+        border-radius: 25px;
+     }
+     input {
+        width: 100%;
+        border-radius: 25px;
+        height: 30px;
+        font-size: medium;
+        
+        
+      }
+     /* The popup form - hidden by default */
+    .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #292929;
+        z-index: 9;
+        background-color: #000000;
+        box-shadow: 10px 10px rgb(64, 64, 64);
+        
+      }
+      b {
+        color: #ffffff;
+      }
+      input {
+        background-color: #868686;
+        
+      }
+      ::placeholder {
+        color: #fff;
+      }
+    
+    }
+        :root {
+    --color-dark: #202020;
+    --color-medium: #333333;
+    --color-light: #FDF5E6;
+    --color-accent: #FF9800;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    overflow: hidden;
+}
+
+.window {
+    background-color: var(--color-medium);
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
+}
+
+.title-bar {
+    background: white;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.window-btn {
+    background: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.window-btn:hover {
+    background: #FFB74D;
+}
+
+.taskbar {
+    background: linear-gradient(to bottom, #3c3c3c, var(--color-medium));
+    border-top: 2px solid var(--color-accent);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn {
+    background: linear-gradient(to bottom, #FFB74D, var(--color-accent));
+    color: var(--color-dark);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn:hover {
+    background: linear-gradient(to bottom, #FFCC80, #FFB74D);
+}
+
+.taskbar-icon {
+    background-color: rgba(253, 245, 230, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.taskbar-icon:hover, .taskbar-icon.active {
+    background-color: rgba(253, 245, 230, 0.3);
+}
+
+.icon {
+    background-color: var(--color-medium);
+    border: 2px solid var(--color-accent);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-medium);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border: 1px solid var(--color-medium);
+}
+
+.content {
+    background-color: White;
+    color: var(--color-dark);
+}
+
+.browser-toolbar {
+    background-color: red;
+    border-bottom: 1px solid;
+}
+
+.browser-btn {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+.browser-btn:hover {
+    background-color: #FFB74D;
+}
+
+.search-bar {
+    background-color: blue;
+    color: var(--color-dark);
+}
+
+#browser-frame {
+    width: 100%;
+    height: 100%;
+    border: 3px;
+    color: lightblue;
+}
+
+#custom-homepage {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+    color: var(--color-light);
+}
+
+#custom-homepage input {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border: 2px solid var(--color-accent);
+}
+
+#custom-homepage button {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+#custom-homepage button:hover {
+    background-color: #FFB74D;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent);
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+}
+
+/* Desktop Styles */
+#desktop {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 56px); /* Adjust based on your taskbar height */
+    overflow: hidden;
+    background-color: pink;
+}
+
+.desktop-icon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+    user-select: none;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    color: var(--color-light);
+}
+
+.desktop-icon:hover {
+    opacity: 0.8;
+}
+
+.desktop-icon:active {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+.desktop-icon .icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: rgba(45, 55, 72, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.desktop-icon:hover .icon {
+    background-color: rgba(45, 55, 72, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.desktop-icon .icon-title {
+    margin-top: 4px;
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Context Menu Styles */
+#context-menu {
+    min-width: 200px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#context-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 32, 44, 0.8);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+#context-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#context-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#context-menu li:hover {
+    background-color: rgba(66, 153, 225, 0.2);
+}
+
+#context-menu li i {
+    margin-right: 10px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+#context-menu li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Video Player Styles */
+#video-window .content {
+    min-height: 300px;
+}
+
+#video-window .video-container {
+    background-color: black;
+    min-height: 200px;
+}
+
+#video-window .video-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+#video-window .video-controls input[type="range"] {
+    -webkit-appearance: none;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#video-window .video-controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+#video-window .video-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #4299e1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#video-window .video-controls input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #4299e1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#video-window .video-controls,
+#video-window .file-input-container {
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    #video-window .video-controls .flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #video-window .video-controls .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    #video-window .file-input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #video-window .file-input-container label {
+        margin-bottom: 0.5rem;
+    }
+
+    #video-window #file-name {
+        margin-left: 0;
+    }
+}
+
+.terminal-output-line, .terminal-response {
+    padding: 2px 0;
+}
+
+.terminal-output-line {
+    color: #00FF00;
+}
+
+.terminal-response {
+    color: #FFFFFF;
+}
+    </style>
+</head>
+    <meta name="google-signin-client_id" content="892422353913-ed3d0gkk70gujb48j4lg7me6ebt2led4.apps.googleusercontent.com">
+<body>
+    <div id="boot-screen">
+        <h1>AirOS Is Booting...</h1>
+        
+            
+        </div>
+        <div id="bios-prompt" class="blink">Press 🅱 to enter BIOS</div>
+    <div id="loading-progress"></div>
+
+    <script>
+        const loadingProgress = document.getElementById('loading-progress');
+        const biosPrompt = document.getElementById('bios-prompt');
+        let canEnterBIOS = true;
+
+        function updateProgress(progress) {
+            loadingProgress.style.width = `${progress}%`;
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function bootUp() {
+            for (let i = 0; i <= 100; i += 5) {
+                updateProgress(i);
+                await sleep(200);
+            }
+            await sleep(1000);
+            if (canEnterBIOS) {
+                window.location.href = 'account.html';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'b' && canEnterBIOS) {
+                canEnterBIOS = false;
+                biosPrompt.classList.remove('blink');
+                biosPrompt.textContent = 'Entering BIOS...';
+                setTimeout(() => {
+                    window.location.href = 'bios.html';
+                }, 1500);
+            }
+        });
+
+        window.onload = () => {
+            bootUp();
+            setTimeout(() => {
+                canEnterBIOS = false;
+                biosPrompt.classList.add('hidden');
+            }, 8000); // Hide BIOS prompt after 8 seconds
+        };
+    </script>
+</body>
+</html>
